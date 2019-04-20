@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Valid Form</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <h1>Bienvenido {{ user.name | uppercase }}</h1>
+
+        <div v-if="errors.length">
+            <ul>
+                <li v-for="error in errors" :key="error.id">{{ error }}</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <form v-on:submit.prevent="onLogin()">
+            <input type="text" placeholder="nombre de usuario" v-model="user.name">
+            <input type="password" placeholder="contraseña" v-model="user.password">
+            <br>
+            <br>
+            <button type="submit" v-bind:disabled="isFormEmpty">Enviar</button>
+        </form>
+
+        <br>
+        <br>
+
+        <a v-bind:href="url" target="_blank">Ir a</a>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="app.js"></script>
+</body>
+</html>

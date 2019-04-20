@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+
+        <div>
+            <button @click="fight()">Luchar</button>
+        </div>
+
+        <div :class="['box', {winner: player1.winner}]">
+            <select v-model="player1.pokemon" @change="resetWinner()">
+                <option v-for="pokemon in pokemons" :key="pokemon.id" :value="pokemon">{{ pokemon.name }}</option>
+            </select>
+
+            <pokemon :class="player1.pokemon.name"></pokemon>
+        </div>
+
+        <label>VS</label>
+
+        <div :class="['box', {winner: player2.winner}]">
+            <select v-model="player2.pokemon" @change="resetWinner()">
+                <option v-for="pokemon in pokemons" :key="pokemon.id" :value="pokemon">{{ pokemon.name }}</option>
+            </select>
+
+            <pokemon :class="player2.pokemon.name"></pokemon>
+        </div>
+
+    </div>
+
+    <script src="vue.js""></script>
+    <script src="app.js"></script>
+</body>
+</html>
