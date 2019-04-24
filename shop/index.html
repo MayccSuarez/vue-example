@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <marketplace>
+            <component
+                v-for="course in courses"
+                :key="course.id"
+                :is="course.type"
+                :title="course.title"
+                :subtitle="course.subtitle"
+                :description="course.description"
+                @add="addToCart"
+            >
+            </component>
+        </marketplace>
+
+        <hr>
+
+        <div class="cart">
+            <li v-for="course in cart"> {{ course.title }} - {{ course.months }} meses</li>
+        </div>
+
+    </div>
+
+    <script src="vue.js""></script>
+    <script src=" app.js"></script>
+</body>
+
+</html>
